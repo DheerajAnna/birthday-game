@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Mascot Container -->
+    <div class="mascot-container" id="mascotContainer"></div>
+
+    <!-- Welcome Screen -->
+    <div class="screen active" id="welcomeScreen">
+        <div class="content">
+            <h1 class="title">Happy Birthday, Beautiful! 🎉</h1>
+            <p class="subtitle">I've prepared something special for you...</p>
+            <p class="description">A journey through our memories together 💕</p>
+            <button class="btn-primary" onclick="startGame()">Start Our Adventure</button>
+        </div>
+    </div>
+
+    <!-- Level 1: Memory Match -->
+    <div class="screen" id="level1">
+        <div class="content">
+            <div class="level-header">
+                <span class="level-badge">Level 1 of 4</span>
+                <div class="hearts-earned">
+                    <span id="hearts1">❤️❤️❤️</span>
+                </div>
+            </div>
+            <h2 class="level-title">Memory Match 🎯</h2>
+            <p class="level-description">Let's see how well you remember our special moments!</p>
+            
+            <div class="question-box">
+                <p class="question" id="question1"><!-- Question will be inserted by JS --></p>
+                <div class="options" id="options1">
+                    <!-- Options will be inserted by JS -->
+                </div>
+            </div>
+            
+            <div class="result-box hidden" id="result1">
+                <div class="photo-reveal">
+                    <img src="" alt="Our Memory" id="photo1">
+                </div>
+                <p class="love-note" id="note1"><!-- Love note will be inserted by JS --></p>
+                <button class="btn-primary" onclick="nextLevel(2)">Continue →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level 2: Photo Reveal Puzzle -->
+    <div class="screen" id="level2">
+        <div class="content">
+            <div class="level-header">
+                <span class="level-badge">Level 2 of 4</span>
+                <div class="hearts-earned">
+                    <span id="hearts2">❤️❤️❤️</span>
+                </div>
+            </div>
+            <h2 class="level-title">Photo Reveal Puzzle 📸</h2>
+            <p class="level-description">Can you remember this moment?</p>
+            
+            <div class="photo-puzzle">
+                <img src="" alt="Mystery Photo" id="blurredPhoto" class="blurred">
+            </div>
+            
+            <div class="question-box">
+                <p class="question" id="question2"><!-- Question will be inserted by JS --></p>
+                <div class="options" id="options2">
+                    <!-- Options will be inserted by JS -->
+                </div>
+            </div>
+            
+            <div class="result-box hidden" id="result2">
+                <p class="love-note" id="note2"><!-- Love note will be inserted by JS --></p>
+                <button class="btn-primary" onclick="nextLevel(3)">Continue →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level 3: Timeline Challenge -->
+    <div class="screen" id="level3">
+        <div class="content">
+            <div class="level-header">
+                <span class="level-badge">Level 3 of 4</span>
+                <div class="hearts-earned">
+                    <span id="hearts3">❤️❤️❤️</span>
+                </div>
+            </div>
+            <h2 class="level-title">Timeline Challenge ⏰</h2>
+            <p class="level-description">Arrange our special moments in the right order!</p>
+            
+            <div class="timeline-game">
+                <p class="timeline-instruction">Drag and drop the events to arrange them chronologically 💕<br>
+                <small style="color: #999; font-size: 0.9rem;">Click on placed events to remove • Drag near top/bottom to auto-scroll</small></p>
+                
+                <!-- Timeline slots where events will be dropped -->
+                <div class="timeline-container" id="timelineSlots">
+                    <!-- Slots will be created by JS -->
+                </div>
+                
+                <!-- Draggable events (jumbled) -->
+                <div class="events-pool" id="eventsPool">
+                    <!-- Events will be created by JS -->
+                </div>
+                
+                <button class="btn-primary" id="checkTimelineBtn" onclick="checkTimeline()" style="margin-top: 20px;">
+                    Check My Answer ✓
+                </button>
+            </div>
+            
+            <div class="result-box hidden" id="result3">
+                <div class="timeline-success">
+                    <h3>Perfect! You remember our journey! 💕</h3>
+                    <div class="timeline-reveal" id="timelineReveal">
+                        <!-- Correct timeline with photos will be shown -->
+                    </div>
+                </div>
+                <p class="love-note" id="note3"><!-- Love note will be inserted by JS --></p>
+                <button class="btn-primary" onclick="nextLevel(4)">Continue →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level 4: Final Treasure -->
+    <div class="screen" id="level4">
+        <div class="content">
+            <div class="level-header">
+                <span class="level-badge">Final Level 💝</span>
+                <div class="hearts-earned">
+                    <span id="hearts4">❤️❤️❤️</span>
+                </div>
+            </div>
+            <h2 class="level-title">One Last Question... 💕</h2>
+            <p class="level-description">Before we reveal your surprise!</p>
+            
+            <div class="question-box">
+                <p class="question" id="question4">What do you deserve?</p>
+                <div class="options" id="options4">
+                    <button class="option-btn" onclick="finalReveal()">The World 🌍</button>
+                    <button class="option-btn" onclick="finalReveal()">Everything ✨</button>
+                    <button class="option-btn" onclick="finalReveal()">All My Love 💖</button>
+                    <button class="option-btn" onclick="finalReveal()">All of the Above! 🎁</button>
+                </div>
+            </div>
+            
+            <div class="result-box hidden" id="result4">
+                <div class="final-message">
+                    <h3>You deserve it all and so much more! 💕</h3>
+                    <p class="love-note" id="finalNote"><!-- Final note will be inserted by JS --></p>
+                </div>
+                
+                <div class="gift-card-reveal">
+                    <div class="gift-card">
+                        <div class="gift-card-header">
+                            <h3>🎁 Your Birthday Gift 🎁</h3>
+                        </div>
+                        <div class="gift-card-body">
+                            <img src="https://via.placeholder.com/200x100/FF69B4/FFFFFF?text=NYKAA" alt="Nykaa Gift Card" class="gift-card-logo">
+                            <p class="gift-card-amount">₹ [AMOUNT]</p>
+                            <p class="gift-card-code">Code: <span id="giftCode">[YOUR-GIFT-CODE]</span></p>
+                            <button class="btn-copy" onclick="copyGiftCode()">Copy Code 📋</button>
+                            <button class="btn-email" onclick="emailGiftCard()">Email to Me 💌</button>
+                        </div>
+                        <div class="gift-card-footer">
+                            <p>Go treat yourself, beautiful! 💄✨</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Email Success Message -->
+                <div class="email-success hidden" id="emailSuccess">
+                    <p>✉️ Gift card emailed to you! Check your inbox 💕</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
