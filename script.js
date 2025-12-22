@@ -415,9 +415,9 @@ function handleTouchMove(e) {
     touchClone.style.left = (touch.clientX - touchDragElement.offsetWidth / 2) + 'px';
     touchClone.style.top = (touch.clientY - 40) + 'px';
     
-    // Auto-scroll when near edges (increased sensitivity)
-    const scrollThreshold = 250; // Increased to 250px for even more sensitivity
-    const scrollSpeed = 20; // Increased to 20 for faster scroll
+    // Auto-scroll when near edges
+    const scrollThreshold = 100; // Reduced to 100px for balanced sensitivity
+    const scrollSpeed = 12; // Reduced to 12 for moderate scroll speed
     
     if (touch.clientY < scrollThreshold) {
         // Near top - scroll up
