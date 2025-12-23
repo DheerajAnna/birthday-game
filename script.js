@@ -781,11 +781,31 @@ function launchConfetti() {
     }, 10000);
 }
 
+// EmailJS Configuration
+// SETUP REQUIRED: Get these from https://www.emailjs.com/
+const EMAILJS_SERVICE_ID = 'service_a1zgt0r'; // Replace with your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = 'template_2uuo0zb'; // Replace with your EmailJS template ID
+const EMAILJS_PUBLIC_KEY = 'XefoLrp8yDmRy-h8L'; // Replace with your EmailJS public key
+
+// Initialize EmailJS
+(function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+})();
+
 // Email gift card function
 function emailGiftCard() {
     const giftCode = document.getElementById('giftCode').textContent;
     const amount = gameData.giftCardAmount;
     const recipientEmail = 'annadheeraj2003@gmail.com'; // Change to her email: aayushi2003thakur@gmail.com
+    
+    // Check if EmailJS is configured
+    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+        // Fallback to mailto if not configured
+        sendEmailViaMailto(giftCode, amount, recipientEmail);
+        return;
+    }
     
     // Create beautiful HTML email content
     const emailSubject = '🎁 Your Birthday Gift Card! 💕';
@@ -831,17 +851,74 @@ function emailGiftCard() {
 </body>
 </html>`;
 
-    // Create mailto link with HTML content
-    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    // Send email using EmailJS
+    const templateParams = {
+        to_email: recipientEmail,
+        subject: emailSubject,
+        gift_code: giftCode,
+        gift_amount: amount,
+        final_note: gameData.finalNote,
+        html_content: emailBody
+    };
     
-    // Try to open email client
+    // Show loading state
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending... ⏳';
+    btn.disabled = true;
+    
+    // Send email via EmailJS
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function(response) {
+            console.log('Email sent successfully!', response.status, response.text);
+            
+            // Show success message
+            const successMsg = document.getElementById('emailSuccess');
+            successMsg.classList.remove('hidden');
+            
+            // Reset button
+            btn.textContent = '✓ Sent!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }, function(error) {
+            console.error('Email failed to send:', error);
+            
+            // Fallback to mailto
+            sendEmailViaMailto(giftCode, amount, recipientEmail);
+            
+            // Reset button
+            btn.textContent = originalText;
+            btn.disabled = false;
+        });
+}
+
+// Fallback mailto function
+function sendEmailViaMailto(giftCode, amount, recipientEmail) {
+    const emailSubject = '🎁 Your Birthday Gift Card! 💕';
+    const emailBody = `
+Happy Birthday! 🎂
+
+Your Nykaa Gift Card:
+Amount: ₹${amount}
+Code: ${giftCode}
+
+${gameData.finalNote}
+
+Go treat yourself to something beautiful! You deserve all the happiness in the world. 💄✨
+
+With all my love 💕
+Use this code at Nykaa.com to redeem your gift!
+`;
+    
+    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     window.location.href = mailtoLink;
     
     // Show success message
     const successMsg = document.getElementById('emailSuccess');
     successMsg.classList.remove('hidden');
-    
-    // Hide after 5 seconds
     setTimeout(() => {
         successMsg.classList.add('hidden');
     }, 5000);
