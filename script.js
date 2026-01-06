@@ -924,10 +924,48 @@ Use this code at Nykaa.com to redeem your gift!
     }, 5000);
 }
 
+// Background Music Control
+let musicPlaying = false;
+const bgMusic = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
+
+function toggleMusic() {
+    if (musicPlaying) {
+        bgMusic.pause();
+        musicToggle.textContent = '🔇';
+        musicToggle.classList.add('muted');
+        musicPlaying = false;
+    } else {
+        bgMusic.play().catch(e => console.log('Audio play failed:', e));
+        musicToggle.textContent = '🔊';
+        musicToggle.classList.remove('muted');
+        musicPlaying = true;
+    }
+}
+
+// Auto-play music on first user interaction
+function startMusicOnInteraction() {
+    if (!musicPlaying) {
+        bgMusic.play().catch(e => console.log('Audio autoplay blocked'));
+        musicPlaying = true;
+        musicToggle.textContent = '🔊';
+    }
+    // Remove listeners after first interaction
+    document.removeEventListener('click', startMusicOnInteraction);
+    document.removeEventListener('touchstart', startMusicOnInteraction);
+}
+
 // Initialize on page load
 window.addEventListener('load', () => {
     createFloatingHearts();
     createMascots(); // Initialize mascots!
+    
+    // Set initial volume
+    bgMusic.volume = 0.3; // 30% volume (adjust as needed)
+    
+    // Try to autoplay (will work after user interaction)
+    document.addEventListener('click', startMusicOnInteraction);
+    document.addEventListener('touchstart', startMusicOnInteraction);
 });
 
 // Handle window resize for confetti

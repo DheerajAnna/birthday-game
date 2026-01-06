@@ -186,6 +186,17 @@
     <!-- Confetti Canvas -->
     <canvas id="confettiCanvas"></canvas>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Music Control Button -->
+    <button id="musicToggle" class="music-toggle" onclick="toggleMusic()">
+        🔊
+    </button>
+
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
