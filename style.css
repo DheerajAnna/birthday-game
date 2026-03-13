@@ -708,11 +708,9 @@ body > .event-card {
 }
 
 .gift-card-logo {
-    width: 180px;
+    width: 170px;
     height: auto;
-    margin: 10px auto;
-    display: block;
-    object-fit: contain;
+    margin: 10px 0;
 }
 
 .gift-card-amount {
