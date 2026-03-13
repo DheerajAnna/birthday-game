@@ -19,9 +19,9 @@
     <!-- Welcome Screen -->
     <div class="screen active" id="welcomeScreen">
         <div class="content">
-            <h1 class="title">Happy Birthday, Beautiful! 🎉</h1>
-            <p class="subtitle">I've prepared something special for you...</p>
-            <p class="description">A journey through our memories together 💕</p>
+            <h1 class="title">Happy Birthday, Cheescake! 🎉</h1>
+            <p class="subtitle">This is a gift out of the love, fun, masti, and permanence of our journey together 💕</p>
+            <p class="description">There are also gifts for you at the very end if you do well in this game!!</p>
             <button class="btn-primary" onclick="startGame()">Start Our Adventure</button>
         </div>
     </div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <h2 class="level-title">Memory Match 🎯</h2>
-            <p class="level-description">Let's see how well you remember our special moments!</p>
+            <p class="level-description">Let's see how well you remeber these moments 😂</p>
             
             <div class="question-box">
                 <p class="question" id="question1"><!-- Question will be inserted by JS --></p>
@@ -129,56 +129,229 @@
         </div>
     </div>
 
-    <!-- Level 4: Final Treasure -->
+    <!-- Level 4: Photo Reveal Puzzle 2 -->
     <div class="screen" id="level4">
         <div class="content">
             <div class="level-header">
-                <span class="level-badge">Final Level 💝</span>
+                <span class="level-badge">Level 4 of 5</span>
                 <div class="hearts-earned">
                     <span id="hearts4">❤️❤️❤️</span>
                 </div>
             </div>
-            <h2 class="level-title">One Last Question... 💕</h2>
-            <p class="level-description">Before we reveal your surprise!</p>
+            <h2 class="level-title">Photo Mystery 2 📸</h2>
+            <p class="level-description">Can you guess what's happening here?</p>
             
             <div class="question-box">
-                <p class="question" id="question4">What do you deserve?</p>
+                <div class="photo-puzzle">
+                    <img id="blurredPhoto2" src="" alt="Mystery Photo" class="blurred">
+                </div>
+                <p class="question" id="question4">Loading...</p>
                 <div class="options" id="options4">
-                    <button class="option-btn" onclick="finalReveal()">The World 🌍</button>
-                    <button class="option-btn" onclick="finalReveal()">Everything ✨</button>
-                    <button class="option-btn" onclick="finalReveal()">All My Love 💖</button>
-                    <button class="option-btn" onclick="finalReveal()">All of the Above! 🎁</button>
+                    <!-- Options will be inserted by JS -->
                 </div>
             </div>
             
             <div class="result-box hidden" id="result4">
-                <div class="final-message">
-                    <h3>You deserve it all and so much more! 💕</h3>
-                    <p class="love-note" id="finalNote"><!-- Final note will be inserted by JS --></p>
+                <div class="photo-reveal">
+                    <img id="revealedPhoto2" src="" alt="Revealed Photo">
+                </div>
+                <p class="love-note" id="note4"><!-- Love note will be inserted by JS --></p>
+                <button class="btn-primary" onclick="nextLevel(5)">Final Level →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level 5: Multi-Select Question -->
+    <div class="screen" id="level5">
+        <div class="content">
+            <div class="level-header">
+                <span class="level-badge">Final Level 💝</span>
+                <div class="hearts-earned">
+                    <span id="hearts5">❤️❤️❤️</span>
+                </div>
+            </div>
+            <h2 class="level-title">One Last Question... 💕</h2>
+            <p class="level-description">Choose carefully! You can select multiple options.</p>
+            
+            <div class="question-box">
+                <p class="question" id="question5">What do you absolutely love in life?</p>
+                <div class="multi-select-options" id="options5">
+                    <label class="checkbox-option">
+                        <input type="checkbox" value="food" id="opt-food">
+                        <span class="checkbox-label">Food 🍜</span>
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="checkbox" value="smitha" id="opt-smitha">
+                        <span class="checkbox-label">Smitha 👩</span>
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="checkbox" value="ps5" id="opt-ps5">
+                        <span class="checkbox-label">My PS5 🎮</span>
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="checkbox" value="makeup" id="opt-makeup">
+                        <span class="checkbox-label">Makeup 💄</span>
+                    </label>
+                </div>
+                <button class="btn-primary" onclick="checkLoveSelection()">Submit Answer</button>
+            </div>
+            
+            <!-- Wrong Answer Prompt -->
+            <div class="warning-prompt hidden" id="warningPrompt">
+                <div class="warning-content">
+                    <h3>🤔 Are you sure?</h3>
+                    <p>I think you should be a bit more careful about what you love.</p>
+                    <button class="btn-primary" onclick="retrySelection()">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Restaurant Date Reveal -->
+    <div class="screen" id="restaurantReveal">
+        <div class="content">
+            <div class="asian-theme-bg">
+                <div class="lanterns">
+                    <div class="lantern">🏮</div>
+                    <div class="lantern">🏮</div>
+                    <div class="lantern">🏮</div>
+                </div>
+            </div>
+            
+            <div class="restaurant-card">
+                <div class="restaurant-header">
+                    <h2>🍜 Your First Gift: A Date! 🥢</h2>
+                    <p class="gift-connection">You chose <strong>Food</strong> 🍜 - and I chose a place for both of us! A treat from me to the sweetest Jigglypuff I could've ever asked for!!</p>
                 </div>
                 
-                <div class="gift-card-reveal">
-                    <div class="gift-card">
-                        <div class="gift-card-header">
-                            <h3>🎁 Your Birthday Gift 🎁</h3>
+                <div class="restaurant-details">
+                    <div class="restaurant-image">
+                        <img src="images/shang palace.jpg" alt="Shang Palace">
+                    </div>
+                    
+                    <div class="restaurant-info">
+                        <h3>🏯 Shang Palace</h3>
+                        <p class="restaurant-subtitle">at Shangri-La Hotel, Bangalore</p>
+                        <p class="restaurant-description">One of the most recommended Asian restaurants in Bangalore! 🌟</p>
+                        
+                        <div class="date-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">📅</span>
+                                <span class="detail-text">Today!</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🕐</span>
+                                <span class="detail-text">2:15 PM</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🍱</span>
+                                <span class="detail-text">Authentic Asian Cuisine</span>
+                            </div>
                         </div>
-                        <div class="gift-card-body">
-                            <img src="https://via.placeholder.com/200x100/FF69B4/FFFFFF?text=NYKAA" alt="Nykaa Gift Card" class="gift-card-logo">
-                            <p class="gift-card-amount">₹ [AMOUNT]</p>
-                            <p class="gift-card-code">Code: <span id="giftCode">[YOUR-GIFT-CODE]</span></p>
-                            <button class="btn-copy" onclick="copyGiftCode()">Copy Code 📋</button>
-                            <button class="btn-email" onclick="emailGiftCard()">Email to Me 💌</button>
-                        </div>
-                        <div class="gift-card-footer">
-                            <p>Go treat yourself, beautiful! 💄✨</p>
+                        
+                        <div class="restaurant-emojis">
+                            🥟 🍜 🥢 🍱 🥠 🍵
                         </div>
                     </div>
                 </div>
                 
-                <!-- Email Success Message -->
-                <div class="email-success hidden" id="emailSuccess">
-                    <p>✉️ Gift card emailed to you! Check your inbox 💕</p>
+                <button class="btn-primary btn-large" onclick="continueToBirthdayQuiz()">Continue to Your Next Gift!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Birthday Quiz Page 1: When are our birthdays? -->
+    <div class="screen" id="birthdayQuiz1">
+        <div class="content">
+            <div class="quiz-header">
+                <h2>🎂 Quick Quiz! 🎂</h2>
+                <p class="quiz-subtitle">Let's see how well you remember...</p>
+            </div>
+            
+            <div class="quiz-box">
+                <p class="quiz-question">When are our birthdays?</p>
+                <p class="quiz-hint">(Use only dates, not months and years)</p>
+                
+                <div class="birthday-inputs">
+                    <div class="input-group">
+                        <label>First Birthday Date:</label>
+                        <input type="number" id="birthday1" placeholder="DD" min="1" max="31" maxlength="2">
+                    </div>
+                    <div class="input-group">
+                        <label>Second Birthday Date:</label>
+                        <input type="number" id="birthday2" placeholder="DD" min="1" max="31" maxlength="2">
+                    </div>
                 </div>
+                
+                <button class="btn-primary" onclick="checkBirthdayDates()">Submit</button>
+                
+                <div class="quiz-error hidden" id="birthdayError">
+                    <p>🤔 Not quite! Try again...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Birthday Quiz Page 2: Reverse the digits -->
+    <div class="screen" id="birthdayQuiz2">
+        <div class="content">
+            <div class="quiz-header">
+                <h2>🔢 One More Step! 🔢</h2>
+            </div>
+            
+            <div class="quiz-box">
+                <div class="number-display">
+                    <p class="quiz-question">Here are the dates:</p>
+                    <div class="big-number" id="combinedDates">1527</div>
+                </div>
+                
+                <p class="quiz-question" style="margin-top: 30px;">Now, reverse these digits!</p>
+                <p class="quiz-hint">Enter the 4-digit number</p>
+                
+                <div class="reverse-input">
+                    <input type="number" id="reversedNumber" placeholder="____" maxlength="4">
+                </div>
+                
+                <button class="btn-primary" onclick="checkReversedNumber()">Submit</button>
+                
+                <div class="quiz-error hidden" id="reverseError">
+                    <p>🤔 Not quite! Try reversing the digits...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Makeup Gift Card Reveal -->
+    <div class="screen" id="makeupReveal">
+        <div class="content">
+            <div class="makeup-header">
+                <h2>💄 Your Second Gift: Makeup! ✨</h2>
+                <p class="gift-connection">You chose <strong>Makeup</strong> 💄 - and here's your gift amount: <strong>₹7251</strong>!</p>
+            </div>
+            
+            <div class="gift-card-reveal" id="finalGiftCard">
+                <div class="gift-card">
+                    <div class="gift-card-header">
+                        <h3>🎁 Nykaa Gift Card 🎁</h3>
+                    </div>
+                    <div class="gift-card-body">
+                        <img src="https://via.placeholder.com/200x100/FF69B4/FFFFFF?text=NYKAA" alt="Nykaa Gift Card" class="gift-card-logo">
+                        <p class="gift-card-amount">₹ 7251</p>
+                        <p class="gift-card-code">Card Number: <span id="giftCardNumber"></span></p>
+                        <p class="gift-card-code">Card PIN: <span id="giftCardPin"></span></p>
+                        <button class="btn-copy" onclick="copyGiftDetails()">Copy Details 📋</button>
+                        <button class="btn-email" onclick="emailGiftCard()">Email to Me 💌</button>
+                    </div>
+                    <div class="gift-card-footer">
+                        <p>Go treat yourself, beautiful! 💄✨</p>
+                        <p class="gift-footer-note">Though you don't need any makeup, I know you would love to have it! 🎂💕</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email Success Message -->
+            <div class="email-success hidden" id="emailSuccess">
+                <p>✉️ Gift card emailed to you! Check your inbox 💕</p>
             </div>
         </div>
     </div>
@@ -188,7 +361,7 @@
 
     <!-- Background Music -->
     <audio id="bgMusic" loop>
-        <source src="music/background.mp3" type="audio/mpeg">
+        <source src="audio/boba date.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     

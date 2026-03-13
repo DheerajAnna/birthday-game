@@ -1,13 +1,14 @@
 # 💕 Birthday Game for Your Girlfriend
 
-A cute, interactive browser-based game featuring 4 levels with photos, memories, and ending with a Nykaa gift card reveal!
+A cute, interactive browser-based game featuring 5 levels with photos, memories, and ending with a Nykaa gift card reveal!
 
 ## 🎮 Game Features
 
 - **Level 1**: Memory Match - Multiple choice questions about your relationship
 - **Level 2**: Photo Reveal Puzzle - Blurred photo that reveals when answered correctly
 - **Level 3**: Timeline Challenge - **Drag & drop events in chronological order!**
-- **Level 4**: Final Treasure - Gift card reveal with confetti animation + **Email gift card button!**
+- **Level 4**: Photo Reveal Puzzle 2 - Another mystery photo to guess
+- **Level 5**: Final Treasure - Gift card reveal with confetti animation + **Email gift card button!**
 
 ## 🎨 Theme
 

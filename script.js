@@ -5,30 +5,31 @@
 const gameData = {
     // Level 1: Memory Match
     level1: {
-        question: "Where did we have our first date?",
+        question: "How many cocktails did each have on our first \"date\"?",
         options: [
-            "At a cozy café ☕",
-            "At the movie theater 🎬",
-            "At the park 🌳",
-            "At a restaurant 🍽️"
+            "2",
+            "2 by you and 3 by me",
+            "3",
+            "Roti aur daaru ki glass ginte nahi"
         ],
-        correctAnswer: 0, // Index of correct answer (0 = first option)
-        photo: "https://via.placeholder.com/500x400/FFB6C1/FFFFFF?text=Our+First+Date", // Replace with your photo URL
-        loveNote: "I'll never forget how nervous I was, but your smile made everything perfect. That day, I knew you were special. 💕"
+        correctAnswer: 2, // Index of correct answer (2 = third option)
+        photo: "images/shared image (4).jpeg", // Replace with your photo URL
+        loveNote: "I'll never forget how nervous I was, but you being the fun little bundle of joy that you are made me enjoy so mucchhhh. That day, I knew you were special. 💕"
     },
     
     // Level 2: Photo Reveal Puzzle
     level2: {
-        question: "What were we doing in this photo?",
+        question: "What were you doing in this photo?",
         options: [
-            "Celebrating your birthday 🎂",
-            "On a weekend trip 🚗",
-            "At a concert 🎵",
-            "Having dinner together 🍝"
+            "Picking at one of your wounds 😭",
+            "Laughing off in the rain 🌦️",
+            "Gussa gussi on phone  🤬",
+            "Trying to find a QR menu at a restaurant 🍝"
         ],
-        correctAnswer: 0, // Index of correct answer
-        photo: "https://via.placeholder.com/500x400/FFC0CB/FFFFFF?text=Mystery+Photo", // Replace with your photo URL
-        loveNote: "This moment was pure magic. Every second with you feels like a celebration. You light up my world! ✨"
+        correctAnswer: 1, // Index of correct answer
+        blurredPhoto: "images/shared image.jpeg", // Blurred version
+        photo: "images/shared image (2).jpeg", // Clear version after correct answer
+        loveNote: "This was one of those days when I truly felt content and satisfied with life. A cute mid-afternoon date while cheering you and the weather up! Will never, ever let you be sad my cutu!!"
     },
     
     // Level 3: Timeline Challenge (Drag & Drop)
@@ -36,38 +37,54 @@ const gameData = {
         // Array of events in CORRECT chronological order
         events: [
             {
-                text: "We met for the first time",
-                date: "January 2023",
-                photo: "https://via.placeholder.com/400x200/FFB6C1/FFFFFF?text=First+Meeting"
+                text: "Both of us got graduated",
+                date: "25th August 2025",
+                photo: "images/shared image (10).jpeg"
             },
             {
-                text: "Our first date at the café",
-                date: "February 2023",
-                photo: "https://via.placeholder.com/400x200/FFC0CB/FFFFFF?text=First+Date"
+                text: "Went to the temple together for the first time",
+                date: "7th September 2025",
+                photo: "images/shared image (7).jpeg"
             },
             {
-                text: "We became official 💕",
-                date: "March 2023",
-                photo: "https://via.placeholder.com/400x200/FFD4E8/FFFFFF?text=Official"
+                text: "Went out on a cute late-night date, almost seen by your colony's aunties",
+                date: "12th September 2025",
+                photo: "images/shared image (8).jpeg"
             },
             {
-                text: "Our first trip together",
-                date: "June 2023",
-                photo: "https://via.placeholder.com/400x200/FFEEF8/FFFFFF?text=First+Trip"
+                text: "You moved into our home ",
+                date: "3rd October 2025",
+                photo: "images/shared image (5).jpeg"
             },
             {
-                text: "Celebrated your birthday",
-                date: "December 2023",
-                photo: "https://via.placeholder.com/400x200/FFE0F0/FFFFFF?text=Birthday"
+                text: "Celebrated our first Diwali together",
+                date: "20th October 2025",
+                photo: "images/shared image (6).jpeg"
             }
         ],
-        loveNote: "Every moment with you is a treasure. From the day we met to now, you've filled my life with joy, laughter, and endless love. Here's to many more beautiful memories together! 🥰💕"
+        loveNote: "Every moment with you is a treasure. From the day we met to now, you've filled my life with joy, laughter, and endless love. May we never run out of such cute mastis!"
     },
     
-    // Final Level
-    finalNote: "You deserve the world and so much more! Thank you for being the most amazing, beautiful, and loving person in my life. You make every day brighter. I love you endlessly! 💖✨",
-    giftCardAmount: "5000", // Change to your gift card amount
-    giftCardCode: "NYKAA2024LOVE" // Change to your actual gift card code
+    // Level 4: Photo Reveal Puzzle 2
+    level4: {
+        question: "What were you doing in this photo?",
+        options: [
+            "Stuffing Lotte Choco Pie in your small mouth",
+            "Showing me your latest Nykaa haul",
+            "Looking like an extra-terrestrial cutie because of some new face mask",
+            "Giving passionate gaalis to our cook for the food he made"
+        ],
+        correctAnswer: 0, // Index of correct answer
+        blurredPhoto: "images/shared image (3).jpeg", // Blurred version
+        photo: "images/shared image (1).jpeg", // Clear version after correct answer
+        loveNote: "These little moments with you are what I cherish the most. Your silly antics, your cute expressions - everything about you makes me fall for you more each day! 🥰💕"
+    },
+    
+    // Level 5: Multi-select question (Food & Makeup leads to gifts)
+    // Restaurant: Shang Palace at Shangri-La Hotel, 2:15 PM
+    // Gift Card: ₹7251 (from birthdays 15th March + 27th April = 15 27 → 7251)
+    giftCardNumber: "6002940044109744", // Replace with actual card number
+    giftCardPin: "168228" // Replace with actual PIN
 };
 
 // ============================================
@@ -113,7 +130,7 @@ function createMascots() {
         mascot.className = 'mascot ' + animations[i % animations.length];
         
         const img = document.createElement('img');
-        img.src = 'images/pikachu.jpg';
+        img.src = 'images/jigglypuff.jpeg';
         img.alt = 'Mascot';
         
         mascot.appendChild(img);
@@ -138,7 +155,7 @@ function spawnCelebrationMascot() {
     mascot.className = 'mascot jump';
     
     const img = document.createElement('img');
-    img.src = 'images/pikachu.jpg';
+    img.src = 'images/jigglypuff.jpeg';
     img.alt = 'Celebration Mascot';
     
     mascot.appendChild(img);
@@ -156,6 +173,13 @@ function spawnCelebrationMascot() {
 function startGame() {
     switchScreen('welcomeScreen', 'level1');
     setupLevel1();
+    
+    // Start background music
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.volume = 0.3; // Set volume to 30%
+    bgMusic.play().catch(err => console.log('Audio autoplay prevented:', err));
+    musicPlaying = true;
+    document.getElementById('musicToggle').textContent = '🔊';
 }
 
 // Switch between screens
@@ -184,7 +208,7 @@ function setupLevel1() {
 // Setup Level 2: Photo Reveal Puzzle
 function setupLevel2() {
     const data = gameData.level2;
-    document.getElementById('blurredPhoto').src = data.photo;
+    document.getElementById('blurredPhoto').src = data.blurredPhoto;
     document.getElementById('question2').textContent = data.question;
     
     const optionsContainer = document.getElementById('options2');
@@ -195,6 +219,24 @@ function setupLevel2() {
         btn.className = 'option-btn';
         btn.textContent = option;
         btn.onclick = () => checkAnswer(2, index, data.correctAnswer);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+// Setup Level 4: Photo Reveal Puzzle 2
+function setupLevel4() {
+    const data = gameData.level4;
+    document.getElementById('blurredPhoto2').src = data.blurredPhoto;
+    document.getElementById('question4').textContent = data.question;
+    
+    const optionsContainer = document.getElementById('options4');
+    optionsContainer.innerHTML = '';
+    
+    data.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(4, index, data.correctAnswer);
         optionsContainer.appendChild(btn);
     });
 }
@@ -259,12 +301,10 @@ function setupLevel3() {
         eventText.className = 'event-text';
         eventText.textContent = event.text;
         
-        const eventDate = document.createElement('div');
-        eventDate.className = 'event-date';
-        eventDate.textContent = event.date;
+        // Date removed from draggable cards to increase difficulty
+        // Dates will only show in the final reveal
         
         card.appendChild(eventText);
-        card.appendChild(eventDate);
         
         // Drag event listeners
         card.addEventListener('dragstart', handleDragStart);
@@ -365,12 +405,10 @@ function createEventCard(eventIndex) {
     eventText.className = 'event-text';
     eventText.textContent = event.text;
     
-    const eventDate = document.createElement('div');
-    eventDate.className = 'event-date';
-    eventDate.textContent = event.date;
+    // Date removed from draggable cards to increase difficulty
+    // Dates will only show in the final reveal
     
     card.appendChild(eventText);
-    card.appendChild(eventDate);
     
     card.addEventListener('dragstart', handleDragStart);
     card.addEventListener('dragend', handleDragEnd);
@@ -668,9 +706,18 @@ function showResult(level) {
         document.getElementById('photo1').src = gameData.level1.photo;
         document.getElementById('note1').textContent = gameData.level1.loveNote;
     } else if (level === 2) {
-        // Unblur the photo
-        document.getElementById('blurredPhoto').classList.remove('blurred');
+        // Replace blurred photo with clear photo and show love note
+        const blurredImg = document.getElementById('blurredPhoto');
+        blurredImg.src = gameData.level2.photo;
+        blurredImg.classList.remove('blurred');
         document.getElementById('note2').textContent = gameData.level2.loveNote;
+    } else if (level === 4) {
+        // Replace blurred photo with clear photo and show love note
+        const blurredImg2 = document.getElementById('blurredPhoto2');
+        blurredImg2.src = gameData.level4.photo;
+        blurredImg2.classList.remove('blurred');
+        document.getElementById('revealedPhoto2').src = gameData.level4.photo;
+        document.getElementById('note4').textContent = gameData.level4.loveNote;
     }
     // Level 3 uses showTimelineResult() instead
 }
@@ -685,26 +732,104 @@ function nextLevel(level) {
         setupLevel3();
     } else if (level === 4) {
         switchScreen('level3', 'level4');
+        setupLevel4();
+    } else if (level === 5) {
+        switchScreen('level4', 'level5');
     }
 }
 
-// Final reveal with confetti
-function finalReveal() {
-    const optionsContainer = document.getElementById('options4');
-    const resultBox = document.getElementById('result4');
+// Check Level 5 multi-select answer
+function checkLoveSelection() {
+    const food = document.getElementById('opt-food').checked;
+    const smitha = document.getElementById('opt-smitha').checked;
+    const ps5 = document.getElementById('opt-ps5').checked;
+    const makeup = document.getElementById('opt-makeup').checked;
     
-    optionsContainer.style.display = 'none';
-    resultBox.classList.remove('hidden');
-    
-    document.getElementById('finalNote').textContent = gameData.finalNote;
-    document.getElementById('giftCode').textContent = gameData.giftCardCode;
-    document.querySelector('.gift-card-amount').textContent = `₹ ${gameData.giftCardAmount}`;
-    
-    // Trigger confetti
-    launchConfetti();
+    // Check if EXACTLY food and makeup are selected (and nothing else)
+    if (food && makeup && !smitha && !ps5) {
+        // Correct answer! Show restaurant reveal
+        document.querySelector('#level5 .question-box').style.display = 'none';
+        switchScreen('level5', 'restaurantReveal');
+        launchConfetti();
+    } else {
+        // Wrong answer - show warning
+        document.getElementById('warningPrompt').classList.remove('hidden');
+    }
 }
 
-// Copy gift code to clipboard
+// Retry selection
+function retrySelection() {
+    document.getElementById('warningPrompt').classList.add('hidden');
+    // Uncheck all boxes
+    document.getElementById('opt-food').checked = false;
+    document.getElementById('opt-smitha').checked = false;
+    document.getElementById('opt-ps5').checked = false;
+    document.getElementById('opt-makeup').checked = false;
+}
+
+// Continue to birthday quiz
+function continueToBirthdayQuiz() {
+    switchScreen('restaurantReveal', 'birthdayQuiz1');
+}
+
+// Check birthday dates (15 and 27 in any order)
+function checkBirthdayDates() {
+    const date1 = parseInt(document.getElementById('birthday1').value);
+    const date2 = parseInt(document.getElementById('birthday2').value);
+    
+    // Check if both 15 and 27 are entered (in any order)
+    const isCorrect = (date1 === 15 && date2 === 27) || (date1 === 27 && date2 === 15);
+    
+    if (isCorrect) {
+        // Correct! Move to next quiz
+        document.getElementById('birthdayError').classList.add('hidden');
+        switchScreen('birthdayQuiz1', 'birthdayQuiz2');
+        
+        // Always show 1527 regardless of input order
+        document.getElementById('combinedDates').textContent = '1527';
+    } else {
+        // Wrong answer - show error
+        document.getElementById('birthdayError').classList.remove('hidden');
+    }
+}
+
+// Check reversed number (must be 7251)
+function checkReversedNumber() {
+    const reversed = parseInt(document.getElementById('reversedNumber').value);
+    
+    if (reversed === 7251) {
+        // Correct! Show gift card
+        document.getElementById('reverseError').classList.add('hidden');
+        
+        // Populate gift card details from gameData
+        document.getElementById('giftCardNumber').textContent = gameData.giftCardNumber;
+        document.getElementById('giftCardPin').textContent = gameData.giftCardPin;
+        
+        switchScreen('birthdayQuiz2', 'makeupReveal');
+        launchConfetti();
+    } else {
+        // Wrong answer - show error
+        document.getElementById('reverseError').classList.remove('hidden');
+    }
+}
+
+// Copy gift card details
+function copyGiftDetails() {
+    const cardNumber = document.getElementById('giftCardNumber').textContent;
+    const cardPin = document.getElementById('giftCardPin').textContent;
+    const details = `Nykaa Gift Card\nAmount: ₹7251\nCard Number: ${cardNumber}\nCard PIN: ${cardPin}`;
+    
+    navigator.clipboard.writeText(details).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied! ✓';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    });
+}
+
+// Copy gift code to clipboard (old function - kept for compatibility)
 function copyGiftCode() {
     const code = document.getElementById('giftCode').textContent;
     navigator.clipboard.writeText(code).then(() => {
@@ -796,14 +921,15 @@ const EMAILJS_PUBLIC_KEY = 'XefoLrp8yDmRy-h8L'; // Replace with your EmailJS pub
 
 // Email gift card function
 function emailGiftCard() {
-    const giftCode = document.getElementById('giftCode').textContent;
-    const amount = gameData.giftCardAmount;
-    const recipientEmail = 'annadheeraj2003@gmail.com'; // Change to her email: aayushi2003thakur@gmail.com
+    const giftCardNumber = document.getElementById('giftCardNumber').textContent;
+    const giftCardPin = document.getElementById('giftCardPin').textContent;
+    const amount = '7251';
+    const recipientEmail = 'annadheeraj3@gmail.com'; // Change to her email: aayushi2003thakur@gmail.com
     
     // Check if EmailJS is configured
     if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
         // Fallback to mailto if not configured
-        sendEmailViaMailto(giftCode, amount, recipientEmail);
+        sendEmailViaMailto(giftCardNumber, giftCardPin, amount, recipientEmail);
         return;
     }
     
@@ -819,7 +945,7 @@ function emailGiftCard() {
         .header { text-align: center; color: #ff1493; font-size: 2rem; margin-bottom: 20px; }
         .gift-box { background: linear-gradient(135deg, #fff0f5, #ffe4e1); border-radius: 15px; padding: 25px; text-align: center; margin: 20px 0; }
         .amount { font-size: 2.5rem; color: #ff69b4; font-weight: bold; margin: 15px 0; }
-        .code { font-family: 'Courier New', monospace; background: #fff0f5; padding: 15px 25px; border-radius: 10px; color: #ff1493; font-weight: 700; font-size: 1.5rem; letter-spacing: 3px; display: inline-block; margin: 15px 0; }
+        .code { font-family: 'Courier New', monospace; background: #fff0f5; padding: 15px 25px; border-radius: 10px; color: #ff1493; font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; display: inline-block; margin: 10px 0; }
         .message { color: #666; font-size: 1.1rem; line-height: 1.6; margin: 20px 0; }
         .hearts { text-align: center; font-size: 2rem; margin: 20px 0; }
         .footer { text-align: center; color: #999; font-size: 0.9rem; margin-top: 30px; border-top: 2px solid #ffe4e1; padding-top: 20px; }
@@ -832,20 +958,22 @@ function emailGiftCard() {
         <div class="gift-box">
             <h2 style="color: #ff69b4; margin-bottom: 10px;">Your Nykaa Gift Card</h2>
             <div class="amount">₹${amount}</div>
-            <p style="color: #666; margin: 10px 0;">Your Gift Code:</p>
-            <div class="code">${giftCode}</div>
+            <p style="color: #666; margin: 10px 0;">Card Number:</p>
+            <div class="code">${giftCardNumber}</div>
+            <p style="color: #666; margin: 10px 0;">Card PIN:</p>
+            <div class="code">${giftCardPin}</div>
         </div>
         
         <div class="message">
-            <p>${gameData.finalNote}</p>
-            <p style="margin-top: 15px;">Go treat yourself to something beautiful! You deserve all the happiness in the world. 💄✨</p>
+            <p>From our birthdays (15th March + 27th April) to your beauty! 🎂💕</p>
+            <p style="margin-top: 15px;">Please go treat yourself to something beautiful! You deserve all the happiness in the world. 💄✨</p>
         </div>
         
         <div class="hearts">💕 💖 💗 💓 💝</div>
         
         <div class="footer">
             <p>With all my love 💕</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">Use this code at Nykaa.com to redeem your gift!</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Use this card at Nykaa.com to redeem your gift!</p>
         </div>
     </div>
 </body>
@@ -855,9 +983,9 @@ function emailGiftCard() {
     const templateParams = {
         to_email: recipientEmail,
         subject: emailSubject,
-        gift_code: giftCode,
+        gift_code: giftCardNumber,
         gift_amount: amount,
-        final_note: gameData.finalNote,
+        gift_pin: giftCardPin,
         html_content: emailBody
     };
     
@@ -896,21 +1024,22 @@ function emailGiftCard() {
 }
 
 // Fallback mailto function
-function sendEmailViaMailto(giftCode, amount, recipientEmail) {
+function sendEmailViaMailto(giftCardNumber, giftCardPin, amount, recipientEmail) {
     const emailSubject = '🎁 Your Birthday Gift Card! 💕';
     const emailBody = `
 Happy Birthday! 🎂
 
 Your Nykaa Gift Card:
 Amount: ₹${amount}
-Code: ${giftCode}
+Card Number: ${giftCardNumber}
+Card PIN: ${giftCardPin}
 
-${gameData.finalNote}
+From our birthdays (15th March + 27th April) to your beauty! 🎂💕
 
-Go treat yourself to something beautiful! You deserve all the happiness in the world. 💄✨
+Please go treat yourself to something beautiful! You deserve all the happiness in the world. 💄✨
 
 With all my love 💕
-Use this code at Nykaa.com to redeem your gift!
+Use this card at Nykaa.com to redeem your gift!
 `;
     
     const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
@@ -930,13 +1059,15 @@ const bgMusic = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
 
 function toggleMusic() {
+    const bgMusicElement = document.getElementById('bgMusic');
     if (musicPlaying) {
-        bgMusic.pause();
+        bgMusicElement.pause();
         musicToggle.textContent = '🔇';
         musicToggle.classList.add('muted');
         musicPlaying = false;
     } else {
-        bgMusic.play().catch(e => console.log('Audio play failed:', e));
+        bgMusicElement.volume = 0.3; // Ensure volume is set
+        bgMusicElement.play().catch(e => console.log('Audio play failed:', e));
         musicToggle.textContent = '🔊';
         musicToggle.classList.remove('muted');
         musicPlaying = true;
