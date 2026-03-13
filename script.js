@@ -924,7 +924,7 @@ function emailGiftCard() {
     const giftCardNumber = document.getElementById('giftCardNumber').textContent;
     const giftCardPin = document.getElementById('giftCardPin').textContent;
     const amount = '7251';
-    const recipientEmail = 'annadheeraj3@gmail.com'; // Change to her email: aayushi2003thakur@gmail.com
+    const recipientEmail = 'aayushi2003thakur@gmail.com'; // Change to her email: aayushi2003thakur@gmail.com
     
     // Check if EmailJS is configured
     if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
