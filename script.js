@@ -62,7 +62,7 @@ const gameData = {
                 photo: "images/shared image (6).jpeg"
             }
         ],
-        loveNote: "Every moment with you is a treasure. From the day we met to now, you've filled my life with joy, laughter, and endless love. May we never run out of such cute mastis!"
+        loveNote: "Every moment with you is a treasure. From the day we met to now, you've filled my life with joy, laughter, and endless love. May we never run out of such cute mastis and happy times! 🥰💕"
     },
     
     // Level 4: Photo Reveal Puzzle 2
