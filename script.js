@@ -29,7 +29,7 @@ const gameData = {
         correctAnswer: 1, // Index of correct answer
         blurredPhoto: "images/shared image.jpeg", // Blurred version
         photo: "images/shared image (2).jpeg", // Clear version after correct answer
-        loveNote: "This was one of those days when I truly felt content and satisfied with life. A cute mid-afternoon date while cheering you and the weather up! Will never, ever let you be sad my cutu!!"
+        loveNote: "This was one of those days when I truly felt content and satisfied with life. A cute mid-afternoon date while cheering you and the weather up! Will never, ever let you be sad my cutu!! 😊"
     },
     
     // Level 3: Timeline Challenge (Drag & Drop)
