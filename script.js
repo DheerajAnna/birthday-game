@@ -5,7 +5,7 @@
 const gameData = {
     // Level 1: Memory Match
     level1: {
-        question: "How many cocktails did each have on our first \"date\"?",
+        question: "How many cocktails did each one of us have on our first \"date\"?",
         options: [
             "2",
             "2 by you and 3 by me",
