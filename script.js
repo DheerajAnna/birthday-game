@@ -83,8 +83,8 @@ const gameData = {
     // Level 5: Multi-select question (Food & Makeup leads to gifts)
     // Restaurant: Shang Palace at Shangri-La Hotel, 2:15 PM
     // Gift Card: ₹7251 (from birthdays 15th March + 27th April = 15 27 → 7251)
-    giftCardNumber: "6002940044109744", // Replace with actual card number
-    giftCardPin: "168228" // Replace with actual PIN
+    giftCardNumber: "600294004410XXXX", // Replace with actual card number
+    giftCardPin: "XXXXXX" // Replace with actual PIN
 };
 
 // ============================================
